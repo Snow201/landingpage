@@ -1,0 +1,645 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <style>
+        h1 {
+            color: green;
+        }
+        a {
+            color: purple;
+            text-decoration: none;
+        }
+        .card {
+            background-color: transparent;
+            width: 250px;
+            height: 250px;
+            perspective: 1000px;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .card-front {
+            background-color: #bbb;
+            color: black;
+        }
+        .card-back {
+            background-color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
+<body>
+
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preloader--spinner"></div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Header Section Start -->
+        <header class="header--section">
+            <!-- Header Navbar Start -->
+            <div class="header--navbar navbar text-white">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#headerNav">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <!-- Logo Start -->
+                        <div class="header--logo navbar-brand ">
+                            <a href="{% url 'index' %}"><img style="opacity: 0.5;" src="{% static 'img/logo.jpeg' %}" alt="" width="70" height="20"></a>
+                        </div>
+                        <!-- Logo End -->
+                    </div>
+
+                    <div id="headerNav" class="navbar-collapse collapse">
+                        <!-- Header Nav Links Start -->
+                        <ul class="header--nav-links nav nav-links fw--400 text-uppercase float--right" data-trigger="scrollspy">
+                            <li class="active"><a href="#banner" data-trigger="scroll">ראשי</a></li>
+                            <li><a href="#about" data-trigger="scroll">הפרוייקט</a></li>
+                            <li><a href="#blog" data-trigger="scroll">מידע על האיזור</a></li>
+                        </ul>
+                        <!-- Header Nav Links End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Header Navbar End -->
+        </header>
+        <!-- Header Section End -->
+
+        <!-- Banner Section Start -->
+        <section id="banner" class="banner--section">
+            <!-- Banner Slider Start -->
+            <div class="banner--slider owl-carousel" data-owl-nav="true" data-owl-dots="true">
+                <!-- Banner Item Start -->
+                <div class="banner--item" data-bg-img="{% static 'img/banner-img/mainBG.jpg' %}">
+                    <div class="vc--parent">
+                        <div class="vc--child">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <!-- Banner Content Start -->
+                                        <div class="banner--content pt--100 pb--100 text-white text-center">
+                                            <div class="banner--title ff--primary">
+                                                <h1 class="h2 text-primary">Metropolis</h1>
+                                            </div>
+
+                                            <div class="banner--subtitle">
+                                            </div>
+
+                                            <div class="banner--desc">
+                                            </div>
+
+                                            <div class="banner--action mt--30">
+                                                <a href="#about" class="btn btn-default" data-trigger="scroll">למידע נוסף</a>
+
+                                            </div>
+                                        </div>
+                                        <!-- Banner Content End -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Banner Item End -->
+
+
+            <!-- Banner Slider End -->
+        </section>
+        <!-- Banner Section End -->
+
+
+
+        <!-- About Section Start -->
+        <section id="about" class="section pt--70 pb--20">
+            <div class="container">
+                <!-- Section Title Start -->
+                <div class="section--title pb--60 text-center">
+                    <h2 class="h1 ff--primary text-primary">הפרויקט</h2>
+                </div>
+                <!-- Section Title End -->
+
+                <div class="row">
+                    <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="post--item">
+                            <div class="post--img">
+                                <a href="#" data-overlay="0.55">
+                                    <img src="img/blog-img/post-item-01.jpg" alt="">
+
+                                    <i class="icon fa fa-external-link"></i>
+                                </a>
+                            </div>
+
+                            <div class="post--title">
+                                <h3 class="h3 mb--20 text-uppercase">
+                                    <a href="#" class="btn-link">יזם</a>
+                                </h3>
+                            </div>
+
+                            <div class="post--excerpt">
+                                <p>קבוצת החברות DIM. בתיק הלקוחות של היזם – 9 פרויקטים, מתוכם 6 כבר אוכלסו. הפרוייקטים הנוספים של DIM כוללים את A-52 ואת A-136. </p>
+                            </div>
+
+                            <div class="post--action fw--500">
+
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+
+                    <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="post--item">
+                            <div class="post--img">
+                                <a href="#" data-overlay="0.55">
+                                    <img src="img/blog-img/post-item-02.jpg" alt="">
+
+                                    <i class="icon fa fa-external-link"></i>
+                                </a>
+                            </div>
+
+                            <div class="post--title">
+                                <h3 class="h3 mb--20 text-uppercase">
+                                    <a href="#" class="btn-link">תיאור</a>
+                                </h3>
+                            </div>
+
+                            <div class="post--excerpt">
+                                <p> הקרבה לתחנות הרכבת התחתית מאפשרת גישה מהירה וקלה במיוחד לכל אזורי קייב ואילו השכנות עם הריאות הירוקות פותחת הזדמנויות בלתי מוגבלות לטיולים והרפתקאות תחת כיפת השמיים. </p>
+                            </div>
+
+                            <div class="post--action fw--500">
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+
+                    <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="post--item">
+                            <div class="post--img">
+                                <a href="#" data-overlay="0.55">
+                                    <img src="img/blog-img/post-item-03.jpg" alt="">
+
+                                    <i class="icon fa fa-external-link"></i>
+                                </a>
+                            </div>
+
+                            <div class="post--title">
+                                <h3 class="h3 mb--20 text-uppercase">
+                                    <a href="#" class="btn-link">המיקום</a>
+                                </h3>
+                            </div>
+
+                            <div class="post--excerpt">
+                                <p>רח׳ אקדמיק זבולוטני (Academician Zabolotny), 1. האזור משויך רשמית לרובע גולוסייבסקי (Holosiivs’kiy district) של הבירה. מתחם המגורים נמצא בסמוך לצומת צירי התנועה המרכזיים: רח׳ זבולוטני ושדרות גלושקוב (Hlushkov), מהשמאפשר יציאה נוחה למחלף.</p>
+                            </div>
+
+                            <div class="post--action fw--500">
+                                <a href="https://g.page/metropolis_apartment" class="btn-link">לראות על המפה<i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section End -->
+
+        <!-- Services Section Start -->
+        <section id="services" class="section pt--70 pb--80"  data-overlay="0.55">
+            <div class="container">
+                <!-- Section Title Start -->
+                <div class="section--title pb--60 text-center lines--white">
+                    <h2 class="h1 ff--primary text-primary">תמונות</h2>
+                </div>
+
+                <!-- Section Title End -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <!-- Testimonial Slider Start -->
+                        <div class="testimonial--slider owl-carousel text-white" data-owl-dots="true" data-owl-margin="30">
+                            <!-- Testimonial Item Start -->
+                            {% for image in images %}
+                            <div class="testimonial--item text-center">
+
+                                <div class="content">
+                                   <img src="{% static image %}">
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- Testimonial Item End -->
+
+                        </div>
+                        <!-- Testimonial Slider End -->
+                    </div>
+                </div>
+            </div>
+                <!-- Service Items Start -->
+
+                <!-- Service Items End -->
+            </div>
+        </section>
+        <!-- Services Section End -->
+
+        <!-- Portfolio Section Start -->
+        <section id="portfolio" class="section pt--70 pb--80">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="post--item">
+                            <div class="post--img">
+                                <a href="#" data-overlay="0.55">
+                                    <img src="img/blog-img/post-item-01.jpg" alt="">
+
+                                    <i class="icon fa fa-external-link"></i>
+                                </a>
+                            </div>
+
+                            <div class="post--title">
+                                <h3 class="h3 mb--20 text-uppercase">
+                                    <a href="#" class="btn-link">טכנולוגיית הבנייה</a>
+                                </h3>
+                            </div>
+
+                            <div class="post--excerpt">
+                                <p>המתחם יוקם תוך שימוש בטכנולוגיית בנייה טרומית, חיפוי הקירות החיצוניים יבוצע בלבנים, הבידוד התרמי יבוצע על ידי צמר מינרלי. חזיתות המבנה כוללות מערכות אוורור. במתחם קיימת מערכת חימום אוטונומית , הכוללת תרמוסטטים נפרדים בכל דירה. בתהליך הבנייה נעשה שימוש בשיטות חדשניות להגברת היעילות האנרגטית, מה שמסייע לצמצום משמעותי בעלויות החימום ומאפשר רמה מירבית של נוחות. </p>
+                            </div>
+
+                            <br>
+                              <div class="post--title">
+                                <h3 class="h3 mb--20 text-uppercase">
+                                    <a href="#" class="btn-link">אבטחה</a>
+                                </h3>
+                            </div>
+
+                            <div class="post--excerpt">
+                                <p>שטח סגור לבאים מבחוץ, לרבות מצלמות מעקב, הפועלות 24 שעות ביממה. </p>
+                            </div>
+
+                            <div class="post--action fw--500">
+
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+
+                    <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="post--item">
+                            <div class="post--img">
+                                <a href="#" data-overlay="0.55">
+                                    <img src="img/blog-img/post-item-02.jpg" alt="">
+
+                                    <i class="icon fa fa-external-link"></i>
+                                </a>
+                            </div>
+
+                            <div class="post--title">
+                                <h3 class="h3 mb--20 text-uppercase">
+                                    <a href="#" class="btn-link">המאפיינים העיקריים</a>
+                                </h3>
+                            </div>
+
+                            <div class="post--excerpt">
+                                <p>4 בניינים בני 10 ו-34 קומות. גובה התקרות נע בין 2.7 ל-3 מטר. סך כמות הדירות במתחם – 2,857. קיימת אפשרות לרכוש דירה משופצת מהקבלן. </p>
+                            </div>
+
+                            <br><br><br><br><br>
+                            <div class="post--title">
+                                <h3 class="h3 mb--20 text-uppercase">
+                                    <a href="#" class="btn-link">שירותים</a>
+                                </h3>
+                            </div>
+
+                            <div class="post--excerpt">
+                                <p> היזם מציע שירותי שוער (קונסיירז׳).</p>
+                            </div>
+
+                            <div class="post--action fw--500">
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+
+                    <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="post--item">
+                            <div class="post--img">
+                                <a href="#" data-overlay="0.55">
+                                    <img src="img/blog-img/post-item-03.jpg" alt="">
+
+                                    <i class="icon fa fa-external-link"></i>
+                                </a>
+                            </div>
+
+                            <div class="post--title">
+                                <h3 class="h3 mb--20 text-uppercase">
+                                    <a href="#" class="btn-link">מפרט טכני</a>
+                                </h3>
+                            </div>
+
+                            <div class="post--excerpt">
+                                <p>מתחם המגורים המעוצב ״מטרופוליס״ משתלב בהרמוניה עם מראה העיר המודרנית ומעניק לו אופי שאפתני. המתחם מתאפיין בייחודיות ויופי יוצאים מן הכלל ומעניק הרגשה מיוחדת במינה. הריאה הירוקה הפרטית שלכם היא אזור הפארק, המתפרס על פני שטח של 2 הקטר. בפארק שדרות ארוכות ומוצלות וספסלים נוחים לטיולים מרגיעים ולמנוחה. </p>
+                            </div>
+
+                            <br><br>
+                            <div class="post--title">
+                                <h3 class="h3 mb--20 text-uppercase">
+                                    <a href="#" class="btn-link">תשתיות פנימיות</a>
+                                </h3>
+                            </div>
+
+                            <div class="post--excerpt">
+                                <p>בשטח המתחם יופעלו גן ילדים ופארק. </p>
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Items Start -->
+
+
+        </section>
+        <!-- Portfolio Section End -->
+
+
+
+        <!-- Team Section Start -->
+
+        <!-- Testimonial Section End -->
+
+        <!-- Blog Section Start -->
+        <section id="blog" class="section pt--70 pb--20" data-overlay="0.55">
+            <div class="container">
+                <!-- Section Title Start -->
+
+                <!-- Section Title End -->
+
+                <div class="row" >
+                    <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="card">
+
+                            <div  class="card-inner">
+                                <div style="background-color: #3f3f3f" class="card-front">
+
+                                    <!-- adding picture in the card -->
+                                    <br><br><br>
+                                    <div class="section--title pb--50 text-center">
+                                        <h2 class="h1 ff--primary text-primary">תחבורה</h2>
+                                    </div>
+                                </div>
+
+                                <!-- Decorate card back side -->
+                                <div class="card-back">
+                                    <h1>תחבורה</h1>
+                                    <p>תחנות רכבת תחתית: ״היפודרום״ (Ipodrom) – הקו הכחול – 5 דקות נסיעה ברכב, 9 דקות הליכה; ״טרמקי״ (Teremky) – הקו הכחול – 10 דקות נסיעה, 9 דקות הליכה; ״מרכז התערוכה״ (Vystavkovy Tsentr) – הקו הכחול – 5 דקות נסיעה ברכב. </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+
+                                        <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="card">
+
+                            <div  class="card-inner">
+                                <div style="background-color: #3f3f3f" class="card-front">
+
+                                    <!-- adding picture in the card -->
+                                    <br><br><br>
+                                    <div class="section--title pb--50 text-center">
+                                        <h2 class="h1 ff--primary text-primary">סופרמרקטים</h2>
+                                    </div>
+                                </div>
+
+                                <!-- Decorate card back side -->
+                                <div class="card-back">
+                                    <h1>סופרמרקטים</h1>
+                                    <p>מרחק הליכה קצר לסניפי Auchan ו-ATB Market.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+
+                                        <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="card">
+
+                            <div  class="card-inner">
+                                <div style="background-color: #3f3f3f" class="card-front">
+
+                                    <!-- adding picture in the card -->
+                                    <br><br><br>
+                                    <div class="section--title pb--50 text-center">
+                                        <h2 class="h1 ff--primary text-primary">כושר</h2>
+                                    </div>
+                                </div>
+
+                                <!-- Decorate card back side -->
+                                <div class="card-back">
+                                    <h1>כושר</h1>
+                                    <p>המתחם יוקם בסמוך ליער גולוסייבסקי, שבו מסלולי ריצה ושבילי אופניים.
+במרחק של כחצי שעת הליכה ממוקמים מכוני הכושר של Sport Life ו-iGym.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+
+                    <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="card">
+
+                            <div  class="card-inner">
+                                <div style="background-color: #3f3f3f" class="card-front">
+
+                                    <!-- adding picture in the card -->
+                                    <br><br><br>
+                                    <div class="section--title pb--50 text-center">
+                                        <h2 class="h1 ff--primary text-primary">גני ילדים </h2>
+                                    </div>
+                                </div>
+
+                                <!-- Decorate card back side -->
+                                <div class="card-back">
+                                    <h1>גני ילדים </h1>
+                                    <p>גני הילדים מס׳ 798, 372 נמצאים במרחק של 15 דקות הליכה.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+
+                                        <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="card">
+
+                            <div  class="card-inner">
+                                <div style="background-color: #3f3f3f" class="card-front">
+
+                                    <!-- adding picture in the card -->
+                                    <br><br><br>
+                                    <div class="section--title pb--50 text-center">
+                                        <h2 class="h1 ff--primary text-primary"> בתי ספר </h2>
+                                    </div>
+                                </div>
+
+                                <!-- Decorate card back side -->
+                                <div class="card-back">
+                                    <h1> בתי ספר </h1>
+                                    <p>בתי הספר מס׳ 286, 285 ו-269 נמצאים במרחק של 10-15 דקות הליכה בלבד. </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+
+                                        <div class="col-md-4 pb--60">
+                        <!-- Post Item Start -->
+                        <div class="card">
+
+                            <div  class="card-inner">
+                                <div style="background-color: #3f3f3f" class="card-front">
+
+                                    <!-- adding picture in the card -->
+                                    <br><br><br>
+                                    <div class="section--title pb--50 text-center">
+                                        <h2 class="h1 ff--primary text-primary">רפואה </h2>
+                                    </div>
+                                </div>
+
+                                <!-- Decorate card back side -->
+                                <div class="card-back">
+                                    <h1>רפואה</h1>
+                                    <p>
+המרכז הרפואי לייעוץ ודיאגנוסטיקה ממוקם במרחק של 15 דקות הליכה בלבד. </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Post Item End -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Section End -->
+
+        <!-- Recent Shots Section Start -->
+
+        <!-- Recent Shots Section End -->
+
+        <!-- Contact Section Start -->
+        <section id="contact" class="section pt--70 pb--20">
+            <div class="container">
+                <!-- Section Title Start -->
+                <div class="section--title pb--50 text-center">
+                    <h2 class="h1 ff--primary text-primary">לקביעת יעוץ</h2>
+
+                    <p>נבחן לעומק מהם הצרכים שלכם. נאתר ונמליץ על הנכסים, אותם כדאי לקחת בחשבון ונמנע מכם סיכונים מיותרים. </p>
+                </div>
+                <!-- Section Title End -->
+
+                <div class="row">
+                    <div class="col-md-8 pb--60">
+                        <!-- Contact Form Start -->
+
+                            <h3 class="h3 mb--20 text-uppercase">אנא מלאו את פרטיכם, ונציגנו ייצור עמכם קשר בהקדם </h3>
+                            <form action="/" method="POST">
+                                {% csrf_token %}
+                                    <div class="col-xs-12 col-xxs-12">
+                                        <div class="form-group">
+                                            <label>שם: </label>
+                                            {{ form.name }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-xxs-12">
+                                        <div class="form-group">
+                                            <label>מספר טלפון: </label>
+                                            {{ form.phone }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-xxs-12">
+                                        <div class="form-group">
+                                            <label>אימייל: </label>
+                                            {{ form.email }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12">
+                                        <button type="submit" value="submit" class="btn btn-default">שלח/י הודעה</button>
+                                    </div>
+                                 {{ form.email.errors }}
+                                {{ form.name.errors }}
+                                {{ form.phone.errors }}
+                                  {{ form.non_field_errors }}
+                            </form>
+
+                        <!-- Contact Form End -->
+                    </div>
+
+                    <div class="col-md-4 pb--60">
+                        <!-- Contact Info Start -->
+                        <div class="contact--info">
+                            <h3 class="h3 mb--30 text-uppercase">אנו מכירים את השוק המקומי על בוריו. נשמח לעמוד לרשותך ולסייע לך להתמצאות בקלות בשוק הנ"ל. </h3>
+
+                        </div>
+                        <!-- Contact Info End -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section End -->
+
+        <!-- Footer Section Start -->
+        <footer class="footer--section pt--50 pb--50 text-center bg-dark">
+            <div class="container">
+                <!-- Footer Social Start -->
+                <div class="footer--social">
+                    <ul class="nav">
+                        <li><a href="https://www.facebook.com/Tanyatsvetkov"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://wa.me/message/U2JK2UGHUAG2D1"><i class="fa fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+                <!-- Footer Social End -->
+
+                <!-- Footer Copyright Start -->
+{% endblock %}
